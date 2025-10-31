@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friends Bio Hub</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+}
+header {
+    padding: 20px;
+    background: black;
+    color: white;
+    text-align: center;
+}
+.search-box { display: flex; justify-content: center; margin: 20px; }
+input {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.names a {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    cursor: pointer;
+}
+.names a:hover { background: #bbb; }
+.section { display: none; padding: 20px; animation: fadeIn .8s; }
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header><h1>Friends Bio Hub</h1></header>
+
+<div id="home" class="section" style="display:block;">
+    <div class="search-box">
+        <input id="search" placeholder="Type a friend's name...">
+    </div>
+    <div id="searchResults" class="names"></div>
+</div>
+
+<div id="jaichandran" class="section">
+<h2>Jaichandran (Jai)</h2>
+<p>- Cool guy, handsome, sometimes a bit dumb<br>
+- Very affectionate toward friends and does the most for them<br>
+- Brave and strong both mentally and physically<br>
+- Says the most “w rizz” lines<br>
+- Rarely gets into major trouble<br>
+- Very tall, but hair can look messy sometimes, like he just came back from a police chase<br>
+- Gets very angry when talking about parents</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="15631.jpg" alt="Jai">
+</div>
+
+<div id="hithayathulla" class="section">
+<h2>Hithayathulla</h2>
+<p>- Opposite of Jai: somewhat short but definitely smarter<br>
+- Not as strong as Jai<br>
+- Often gets into major troubles, even without doing anything, usually because of fake news or misunderstandings<br>
+- Always has good hair<br>
+- Very affectionate toward friends and gets friendly quickly<br>
+- Gets angry if someone insults his parents or sisters</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="18419.jpg" alt="Hid">
+</div>
+
+<div id="ashfaq" class="section">
+<h2>Ashfaq (Ash)</h2>
+<p>- Very cool guy, sometimes handsome<br>
+- Rarely gets into small problems<br>
+- A mix of Jai and Hithayathulla: can be brave and scared, strong and weak, dumb and smart<br>
+- Mid-height, above average marks<br>
+- Very fun, nice, mostly calm and halal<br>
+- Rarely gets angry, even when being roasted</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="13780.jpg" alt="Ash">
+</div>
+
+<div id="junaid" class="section">
+<h2>Junaid (Jun)</h2>
+<p>- Very chubby, cute guy<br>
+- Loved for his cringe laugh<br>
+- Very affectionate toward friends<br>
+- Doesn’t get angry when parents are mentioned<br>
+- Responds with trash dad jokes<br>
+- Sometimes gets into small problems, mostly innocent<br>
+- Laughter is contagious; when he beats someone in fun, it feels like a spa massage<br>
+- Hair is messy, but Hithayathulla helps fix it</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="21697.jpg" alt="Jun">
+</div>
+
+<div id="farhan" class="section">
+<h2>Farhan</h2>
+<p>- Very nice, cool guy with some rizz lines<br>
+- Extremely smart, topper, excellent in Arabic<br>
+- Mid-length hair, better than Junaid’s<br>
+- Never gets angry, definitely naughty sometimes<br>
+- Roasts Junaid occasionally<br>
+- Doesn’t get into problems, always chill</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="23251.jpg" alt="Far">
+</div>
+
+<div id="bhishma" class="section">
+<h2>Bhishma</h2>
+<p>- Very kind, good-hearted, and affectionate<br>
+- Quiet but naughty at times<br>
+- Mid-length hair, doesn’t get into trouble<br>
+- Helps friends whenever asked<br>
+- Scores good marks and is reliable</p>
+<div class="back" onclick="show('home')">⬅ Back</div>
+<img src="23168.jpg" alt="Bhish">
+</div>
+
+<script>
+const friends = ["Jaichandran","Hithayathulla","Ashfaq","Junaid","Farhan","Bhishma"];
+const searchInput = document.getElementById("search");
+const resultsDiv = document.getElementById("searchResults");
+function show(id) {
+    document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+searchInput.addEventListener("keyup", function() {
+    const filter = this.value.toLowerCase();
+    resultsDiv.innerHTML = "";
+    friends.forEach(name => {
+        if(name.toLowerCase().includes(filter)) {
+            const a = document.createElement("a");
+            a.textContent = name;
+            a.onclick = ()=>show(name.toLowerCase());
+            resultsDiv.appendChild(a);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
